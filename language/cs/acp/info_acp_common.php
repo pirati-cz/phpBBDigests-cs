@@ -52,6 +52,7 @@ $lang = array_merge($lang, array(
 	'LOG_CONFIG_DIGESTS_CACHE_CLEARED'						=> '<strong>Obsah adresáře cache/phpbbservices/digests directory byl smazán',
 	'LOG_CONFIG_DIGESTS_CLEAR_SPOOL_ERROR'					=> '<strong>Nebylo možné vymazat soubory z adresáře cache/phpbbservices/digests. To může být  způsobeno nedostatečnými právy k souborům a nebo je tato cesta neplatná. Soubory by měly být veřejně zapisovatelné (777 na unixových systémech).</strong>',
 	'LOG_CONFIG_DIGESTS_DIRECTORY_CREATE_ERROR'				=> '<strong>Nebylo možné vytvořit adresář cache/phpbbservices/digests. Může to být způsobeno nedostatečnými právy k adresáři s phpBB na serveru.</strong>',
+	'LOG_CONFIG_DIGESTS_DUPLICATE_PREVENTED'				=> '<strong>Souhrn NEBYL poslán %1$s (%2$s) pro datum %3$s a hodinu %4$d UTC, protože už mu byl pro tuto hodinu již poslán dříve.</strong>',
 	'LOG_CONFIG_DIGESTS_EDIT_SUBSCRIBERS'					=> '<strong>Upraveny objednávky souhrnů</strong>',
 	'LOG_CONFIG_DIGESTS_FILE_CLOSE_ERROR'					=> '<strong>Nepodařilo se zavřít soubor "%s"</strong>',
 	'LOG_CONFIG_DIGESTS_FILE_OPEN_ERROR'					=> '<strong>Nepodařilo se otevřít adresář "%s". Může to být způsobeno nedostatečnými právy k němu. Práva k souboru by měla umožnit zapisování (777 na unixových systémech).</strong>',
@@ -59,7 +60,7 @@ $lang = array_merge($lang, array(
 	'LOG_CONFIG_DIGESTS_FILTER_ERROR'						=> '<strong>Rozesílání souhrnů bylo zavoláno s nesprávným typem filtru = "%1$s" pro "%2$s"</strong>',
 	'LOG_CONFIG_DIGESTS_FORMAT_ERROR'						=> '<strong>Rozesílání souhrnů bylo zavoláno s nesprávnou frekvencí posílání "%1$s" pro "%2$s"</strong>',
 	'LOG_CONFIG_DIGESTS_GENERAL'							=> '<strong>Obecné nastavení souhrnů bylo změněno</strong>',
-	'LOG_CONFIG_DIGESTS_HOUR_RUN'							=> '<strong>Generování souhrnů pro čas %d UTC</strong>',
+	'LOG_CONFIG_DIGESTS_HOUR_RUN'							=> '<strong>Generování souhrnů pro čas %s UTC</strong>',
 	'LOG_CONFIG_DIGESTS_INCONSISTENT_DATES'					=> '<strong>Nastala neobvyklá chyba. Nebyly zpracovány žádné souhrny, protože čas poslední úspěšného odeslání souhrnů (%1$d) je novější než čas posledního běhu souhrnů (%2$d).</strong>',
 	'LOG_CONFIG_DIGESTS_LOG_ENTRY_BAD'						=> '<strong>Nebylo možné poslat souhrn příspěvků pro "%1$s" (%2$s). Tento problém by měl být prozkoumán a opraven, protože to nejspíš znamená obecný problém s rozesíláním emailů.</strong>',
 	'LOG_CONFIG_DIGESTS_LOG_ENTRY_BAD_NO_EMAIL'				=> '<strong>Nebylo možné poslat souhrn příspěvků pro "%s". Tento problém by měl být prozkoumán a opraven, protože to nejspíš znamená obecný problém s rozesíláním emailů.</strong>',
@@ -92,6 +93,7 @@ $lang = array_merge($lang, array(
 	'LOG_CONFIG_DIGESTS_SIMULATION_DATE_TIME'				=> '<strong>Administrátor zvolil čas rozesílání souhrnů pro %1$s na %2$d:00 (časová zóna fóra).</strong>',
 	'LOG_CONFIG_DIGESTS_SORT_BY_ERROR'						=> '<strong>Souhrn emailem byl zavolán s neplatným parametrem pro třídění "%1$s" pro %2$s</strong>',
 	'LOG_CONFIG_DIGESTS_SYSTEM_CRON_RUN'					=> '<strong>Byl spuštěn systémový cron pro rozesílání</strong>',
+	'LOG_CONFIG_DIGESTS_TEST'								=> '<strong>%s</strong>',	// Used for general troubleshooting, please keep as is in all translations.
 	'LOG_CONFIG_DIGESTS_TIMEZONE_ERROR'						=> '<strong>Časová zóna "%1$s" uživatele "%2$s" je neplatná. Použijte se časová zóna "%3$s". Požádejte prosím uživatele o nastavení časové zóny správně v uživatelském panelu. Seznam podporovaných časových zón je k nalezení na http://php.net/manual/en/timezones.php</strong>',
 	'LOG_CONFIG_DIGESTS_USER_DEFAULTS'						=> '<strong>Výchozí nastavení uživatele pro souhrny emailem byla pozměněna</strong>',
 ));
