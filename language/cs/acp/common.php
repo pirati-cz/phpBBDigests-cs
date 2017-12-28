@@ -23,6 +23,12 @@ $config = $phpbb_container->get('config');
 $helper = $phpbb_container->get('phpbbservices.digests.common');
 
 $lang = array_merge($lang, array(
+	'DIGESTS_WEEKDAY' 					=> 'Neděle,Pondělí,Úterý,Středa,Čtvrtek,Pátek,Sobota',
+));
+
+$weekdays = explode(',', $lang['DIGESTS_WEEKDAY']);
+
+$lang = array_merge($lang, array(
 	'PLURAL_RULE'											=> 8,
 
 	'DIGESTS_ALL'											=> 'Vše',
@@ -63,6 +69,7 @@ $lang = array_merge($lang, array(
 	'DIGESTS_EXCLUDE_FORUMS'								=> 'Vždy vynechat tato fóra',
 	'DIGESTS_EXCLUDE_FORUMS_EXPLAIN'						=> 'Vložte čísla (ID) fór, které se nikdy nemají objevit v souhrnech. Oddělte čísla čárkami. Je-li nastaveno 0, žádné fórum se nevynechá. Číslo (ID) fóra naleznete jako parametr v URL (adrese) stránky jako parameter "&ldquo;f=&rdquo;. Například: http://www.example.com/phpBB3/viewforum.php?f=1. Nepoužívejte čísla fór, která reprezentují kategorie. <i>Toto nastavení se nepoužije, pokud si uživatel objednává jen fóra v záložkách.</i>',
 	'DIGESTS_EXPAND'										=> 'Rozbalit',
+	'DIGESTS_FREQUENCY_EXPLAIN'								=> 'Týdenní souhrny jsou zasílány v ' . strtolower($weekdays[$config['phpbbservices_digests_weekly_digest_day']]) . '. Týdenní souhrny jsou zasílány prvního v každém měsíci. Pro určení dne v týdnu se používá univerzální světový čas (UTC, bez časového posunu).',
 	'DIGESTS_FORMAT_FOOTER' 								=> 'Formát souhrnů',
 	'DIGESTS_FROM_EMAIL_ADDRESS'							=> 'Emailová adresa odesílatele',
 	'DIGESTS_FROM_EMAIL_ADDRESS_EXPLAIN'					=> 'Tato adresa bude použita jako odesílatel v emailu se souhrny. Pokud necháte pole prázdné, použije se email uvedený jako kontaktní adresa fóra. Buďte opatrní, pokud zvolíte email s jinou doménou, než je adresa vašeho fóra - některé emailové servery mohou souhrn vyhodnotit jako spam.',
@@ -117,7 +124,7 @@ $lang = array_merge($lang, array(
 	'DIGESTS_RESET_CRON_RUN_TIME_EXPLAIN'					=> 'Po vymazání se vyprázdní fronta všech připravených neodeslaných souhrnů a další souhrny se vytvoří pouze pro aktuální hodinu. Vymazání může být užitečné, když se ve frontě nahromadí velké množství souhrnů, které nebyly rozeslány, protože se nespustil systémový cron, např. po testování.',
 	'DIGESTS_RUN_TEST'										=> 'Spustit rozesílač emailů',
 	'DIGESTS_RUN_TEST_CLEAR_SPOOL'							=> 'Smazat vyrovnávací paměť ve složce cache/phpbbservices/digests',
-	'DIGESTS_RUN_TEST_CLEAR_SPOOL_ERROR'					=> 'Nebylo možné smazat všechny soubory ve složce cache/phpbbservices/digests. Důvodem by mohla být práva k souborům. Práva by měla být umožnit zápis do složky pro veřejnost (777 na unixových systémech).',
+	'DIGESTS_RUN_TEST_CLEAR_SPOOL_ERROR'					=> 'Nebylo možné smazat všechny soubory ve složce cache/phpbbservices/digests. Důvodem by mohla být práva k souborům nebo byla smazána rodičovská složka. Práva by měla být umožnit zápis do složky pro kohokoliv (777 na unixových systémech).',
 	'DIGESTS_RUN_TEST_CLEAR_SPOOL_EXPLAIN'					=> 'Je-li povoleno, všechny soubory v cache/phpbbservices/digests budou smazány. To může být dobré, aby se zajistilo, že starší souhrny nebudou přístupné. To se provede před každým novým generováním nových souhrnů do této složky.',
 	'DIGESTS_RUN_TEST_DAY'									=> 'Den simulace',
 	'DIGESTS_RUN_TEST_DAY_EXPLAIN'							=> 'Zadejte celé číslo od 1 do 31. Je-li rok, měsíc a den v buducnosti, nebudou samozřejmě vygenerovány žádné souhrny. Nepoužívejte den, který logicky neexistuje, jako třeba 31. února.',
@@ -154,11 +161,15 @@ $lang = array_merge($lang, array(
 	'DIGESTS_SUBSCRIBE_ALL_EXPLAIN'							=> 'Zvolíte-li "Ne", všichni budou odhlášeni z odběrů.',
 	'DIGESTS_SUBSCRIBE_LITERAL'								=> 'Přihlásit k odběru',
 	'DIGESTS_SUBSCRIBED'									=> 'Přihlášen k odběru',
-	'DIGESTS_SUBSCRIBERS'                           		=> 'Odběratelé',
+	'DIGESTS_SUBSCRIBERS_DAILY'                           	=> 'Denní odběratelé',
+	'DIGESTS_SUBSCRIBERS_WEEKLY'                           	=> 'Týdenní odběratelé',
+	'DIGESTS_SUBSCRIBERS_MONTHLY'                           => 'Měsíční odběratelé',
 	'DIGESTS_UNSUBSCRIBE'									=> 'Odhlásit',
 	'DIGESTS_UNSUBSCRIBE_SUBJECT'							=> 'Byl jste odhlášen z odebírání souhrnů příspěvků emailem.',
 	'DIGESTS_UNSUBSCRIBED'									=> 'Není přihlášen k odběru',
 	'DIGESTS_USER_DIGESTS_CHECK_ALL_FORUMS'					=> 'Chcete jako výchozí nastavení zahrnout všechna fóra',
+	'DIGESTS_USER_DIGESTS_MAX_DISPLAY_WORDS'				=> 'Maximální počet slov zobrazených v příspěvku',
+	'DIGESTS_USER_DIGESTS_MAX_DISPLAY_WORDS_EXPLAIN'		=> 'Chcete-li zobrazit příspěvky celé, zadejte -1. Zadáte-li nulu (0), nezobrazí se text příspěvku vůbec.',
 	'DIGESTS_USER_DIGESTS_PM_MARK_READ'						=> 'Označit soukromou zprávu jako přečtenou, pokud je zaslána v souhrnu',
 	'DIGESTS_USER_DIGESTS_REGISTRATION'						=> 'Umožnit objednání souhrnů při registraci nového uživatele',
 	'DIGESTS_USERS_PER_PAGE'								=> 'Uživatelů na stránce',
