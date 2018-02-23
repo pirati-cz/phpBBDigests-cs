@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Digests
-* @copyright (c) 2017 Mark D. Hamill (mark@phpbbservices.com)
+* @copyright (c) 2018 Mark D. Hamill (mark@phpbbservices.com)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -22,15 +22,13 @@ global $phpbb_container;
 $config = $phpbb_container->get('config');
 $helper = $phpbb_container->get('phpbbservices.digests.common');
 
-$server_settings_url = append_sid('index.php?i=acp_board&amp;mode=server');
-
 $lang = array_merge($lang, array(
 	'PLURAL_RULE'											=> 8,
 
 	'ACP_CAT_DIGESTS'										=> 'Souhrny emailem',
 	'ACP_DIGESTS_SETTINGS'									=> 'Nastavení souhrnů emailem',
 	'ACP_DIGESTS_GENERAL_SETTINGS'							=> 'Obecná nastavení',
-	'ACP_DIGESTS_GENERAL_SETTINGS_EXPLAIN'					=> 'Toto jsou obecná nastavení Souhrnů e-mailem. Pokud chcete dosáhnout včasné doručení souhrnů emailem, musíte ve vašem fóru <a href="'. $server_settings_url . '">povolit</a> <strong><a href="https://wiki.phpbb.com/Modular_cron#Use_system_cron">systémový cron</a></strong>. Jinak jsou souhrny vygenerovány a poslány jen v okamžiku provozu na fóru. Pro více informací se podívejte na Časté dotazy (FAQ) k rozšíření Digests (Souhrny emailem) na fóru phpbb.com.',
+	'ACP_DIGESTS_GENERAL_SETTINGS_EXPLAIN'					=> 'Toto jsou obecná nastavení Souhrnů e-mailem. Pokud chcete dosáhnout včasné doručení souhrnů emailem, musíte ve vašem fóru povolit <strong><a href="https://wiki.phpbb.com/Modular_cron#Use_system_cron">systémový cron</a></strong>. Jinak jsou souhrny vygenerovány a poslány jen v okamžiku provozu na fóru. Pro více informací se podívejte na Časté dotazy (FAQ) k rozšíření Digests (Souhrny emailem) na fóru phpbb.com.',
 	'ACP_DIGESTS_USER_DEFAULT_SETTINGS'						=> 'Výchozí nastavení odběratelů',
 	'ACP_DIGESTS_USER_DEFAULT_SETTINGS_EXPLAIN'				=> 'Tato nastavení umožňují administrátorům připravit výchozí hodnoty, když si uživatelé nastavují Souhrny e-mailem.',
 	'ACP_DIGESTS_EDIT_SUBSCRIBERS'							=> 'Upravit odběratele',
@@ -43,7 +41,7 @@ $lang = array_merge($lang, array(
 	'ACP_DIGESTS_RESET_CRON_RUN_TIME'						=> 'Anulovat čas rozesílače',
 	'ACP_DIGESTS_RESET_CRON_RUN_TIME_EXPLAIN'				=> '',
 	'ACP_DIGESTS_TEST'										=> 'Spustit rozeslání ručně',
-	'ACP_DIGESTS_TEST_EXPLAIN'								=> 'Tato funkce vám umožní pustit generování souhrnů ručně pro úvodní nastavení či řešení problémů. Můžete ji taky použít na opětovné vytvoření souhrnů pro určitý den a hodinu. Pro určení času se použije časová zóna fóra (což je ' . $helper->make_tz_offset($config['board_timezone']) . ' UTC). Upozornění: čas, kdy budou souhrny skutečně vygenerovány, může záviset na provozu na vašem fóru a souhrny pak mohou být doručeny později. Tomu můžete předejít, pokud nastavíte <a href="https://wiki.phpbb.com/Modular_cron#Use_system_cron">systémový cron</a> a <a href="'. $server_settings_url . '">povolíte</a> <strong>systémový cron</strong>. Více informací naleznete v Častých otázkách (FAQ) rozšíření Digests (Souhrny emailem) na fóru phpbb.com.',
+	'ACP_DIGESTS_TEST_EXPLAIN'								=> 'Tato funkce vám umožní pustit generování souhrnů ručně pro úvodní nastavení či řešení problémů. Můžete ji taky použít na opětovné vytvoření souhrnů pro určitý den a hodinu. Pro určení času se použije časová zóna fóra (což je ' . $helper->make_tz_offset($config['board_timezone']) . ' UTC). Upozornění: čas, kdy budou souhrny skutečně vygenerovány, může záviset na provozu na vašem fóru a souhrny pak mohou být doručeny později. Tomu můžete předejít, pokud nastavíte <a href="https://wiki.phpbb.com/Modular_cron#Use_system_cron">systémový cron</a> a povolíte <strong>systémový cron</strong>. Více informací naleznete v Častých otázkách (FAQ) rozšíření Digests (Souhrny emailem) na fóru phpbb.com.',
 
 	'LOG_CONFIG_DIGESTS_BAD_DIGEST_TYPE'					=> '<strong>Varování: uživatel %1$s má nastaven špatný typ příspěvku "%2$s". Použije se denní.</strong>',
 	'LOG_CONFIG_DIGESTS_BAD_SEND_HOUR'						=> '<strong>Uživatel %1$s má nastavenou hodinu odeslání na %2$d. Číslo musí být >= 0 a < 24.</strong>',

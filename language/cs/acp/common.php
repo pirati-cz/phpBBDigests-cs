@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Digests
-* @copyright (c) 2017 Mark D. Hamill (mark@phpbbservices.com)
+* @copyright (c) 2018 Mark D. Hamill (mark@phpbbservices.com)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -115,7 +115,6 @@ $lang = array_merge($lang, array(
 																	2 => 'Během rozdělování zátěže byl %d odběratelům změněn čas souhrnů.',
 																	3 => 'Během rozdělování zátěže byl %d odběratelům změněn čas souhrnů.'
 															),
-	'DIGESTS_REFRESH'										=> 'Obnovit',
 	'DIGESTS_REGISTRATION_FIELD'							=> 'Povolit uživatelům objednání souhrnů při registraci',
 	'DIGESTS_REGISTRATION_FIELD_EXPLAIN'					=> 'Pokud je povoleno, dostanou noví uživatelé při registraci do fóra možnost objednat si souhrny s výchozím nastavením! Tato možnost se neobjeví, pokud je zvoleno automatické objednání souhrnů pro nové uživatele.',
 	'DIGESTS_REPLY_TO_EMAIL_ADDRESS'						=> 'Email na odpověď',
@@ -125,7 +124,7 @@ $lang = array_merge($lang, array(
 	'DIGESTS_RUN_TEST'										=> 'Spustit rozesílač emailů',
 	'DIGESTS_RUN_TEST_CLEAR_SPOOL'							=> 'Smazat vyrovnávací paměť ve složce cache/phpbbservices/digests',
 	'DIGESTS_RUN_TEST_CLEAR_SPOOL_ERROR'					=> 'Nebylo možné smazat všechny soubory ve složce cache/phpbbservices/digests. Důvodem by mohla být práva k souborům nebo byla smazána rodičovská složka. Práva by měla být umožnit zápis do složky pro kohokoliv (777 na unixových systémech).',
-	'DIGESTS_RUN_TEST_CLEAR_SPOOL_EXPLAIN'					=> 'Je-li povoleno, všechny soubory v cache/phpbbservices/digests budou smazány. To může být dobré, aby se zajistilo, že starší souhrny nebudou přístupné. To se provede před každým novým generováním nových souhrnů do této složky.',
+	'DIGESTS_RUN_TEST_CLEAR_SPOOL_EXPLAIN'					=> 'Je-li povoleno, všechny soubory v cache/phpbbservices/digests budou smazány. To může být dobré, aby se zajistilo, že starší souhrny nebudou přístupné nepovolaným. Je dobré toto udělat, jakmile máte za sebou ladění, neboť soubory v této složce jsou veřejně přístupné. Mazání se provede před každým novým generováním nových souhrnů do této složky. Provede se i tehdy, když nespustíte generování mailů (za předpokladu, že odešlete stránku pomocí "Odeslat").',
 	'DIGESTS_RUN_TEST_DAY'									=> 'Den simulace',
 	'DIGESTS_RUN_TEST_DAY_EXPLAIN'							=> 'Zadejte celé číslo od 1 do 31. Je-li rok, měsíc a den v buducnosti, nebudou samozřejmě vygenerovány žádné souhrny. Nepoužívejte den, který logicky neexistuje, jako třeba 31. února.',
 	'DIGESTS_RUN_TEST_EMAIL_ADDRESS'						=> 'Testovací emailová adresa',
@@ -144,7 +143,7 @@ $lang = array_merge($lang, array(
 	'DIGESTS_RUN_TEST_YEAR'									=> 'Simulovat rok',
 	'DIGESTS_RUN_TEST_YEAR_EXPLAIN'							=> 'Jsou povoleny roky 2000 až 2030. Obvykle zřejmě použijete aktuální rok. Je-li rok v budoucnosti, žádné souhrny se pochopitelně nevytvoří.',
 	'DIGESTS_SEARCH_FOR_MEMBER'								=> 'Hledat uživatele',
-	'DIGESTS_SEARCH_FOR_MEMBER_EXPLAIN'						=> 'Vložte jméno uživatele nebo jeho začátek a stiskněte Obnovit. Ponechte prázdné pokud chcete vidět všechny uživatele. Hledání nerozlišuje malá a velká písmena.',
+	'DIGESTS_SEARCH_FOR_MEMBER_EXPLAIN'						=> 'Vložte jméno uživatele nebo jeho začátek a stiskněte "Enter". Ponechte prázdné pokud chcete vidět všechny uživatele. Hledání nerozlišuje malá a velká písmena.',
 	'DIGESTS_SELECT_FORUMS_ADMIN_EXPLAIN'					=> 'Seznam fór zahrnuje jen ta fóra, kde má uživatel práva ke čtení. Chcete-li uživateli přidělit práva na fóra, která zde nejsou zobrazena, rozšiřte jejich oprávnění nebo oprávnění jeho skupiny. Ačkoliv zde můžete detailně nastavit, která fóra se uživateli zašlou, nezašle se nic, pokud je formát souhrnů nastaven na &ldquo;Žádný&rdquo;.',
 	'DIGESTS_SHOW'											=> 'Zobrazit',
 	'DIGESTS_SHOW_EMAIL'									=> 'Zobrazit emailovou adresu v logu',
