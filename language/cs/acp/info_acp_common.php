@@ -17,11 +17,6 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-global $phpbb_container;
-
-$config = $phpbb_container->get('config');
-$helper = $phpbb_container->get('phpbbservices.digests.common');
-
 $lang = array_merge($lang, array(
 	'PLURAL_RULE'											=> 8,
 
@@ -41,7 +36,7 @@ $lang = array_merge($lang, array(
 	'ACP_DIGESTS_RESET_CRON_RUN_TIME'						=> 'Anulovat čas rozesílače',
 	'ACP_DIGESTS_RESET_CRON_RUN_TIME_EXPLAIN'				=> '',
 	'ACP_DIGESTS_TEST'										=> 'Spustit rozeslání ručně',
-	'ACP_DIGESTS_TEST_EXPLAIN'								=> 'Tato funkce vám umožní pustit generování souhrnů ručně pro úvodní nastavení či řešení problémů. Můžete ji taky použít na opětovné vytvoření souhrnů pro určitý den a hodinu. Pro určení času se použije časová zóna fóra (což je ' . $helper->make_tz_offset($config['board_timezone']) . ' UTC). Upozornění: čas, kdy budou souhrny skutečně vygenerovány, může záviset na provozu na vašem fóru a souhrny pak mohou být doručeny později. Tomu můžete předejít, pokud nastavíte <a href="https://wiki.phpbb.com/Modular_cron#Use_system_cron">systémový cron</a> a povolíte <strong>systémový cron</strong>. Více informací naleznete v Častých otázkách (FAQ) rozšíření Digests (Souhrny emailem) na fóru phpbb.com.',
+	'ACP_DIGESTS_TEST_EXPLAIN'								=> 'Tato funkce vám umožní pustit generování souhrnů ručně pro úvodní nastavení či řešení problémů. Můžete ji taky použít na opětovné vytvoření souhrnů pro určitý den a hodinu. Pro určení času se použije časová zóna fóra. Upozornění: čas, kdy budou souhrny skutečně vygenerovány, může záviset na provozu na vašem fóru a souhrny pak mohou být doručeny později. Tomu můžete předejít, pokud nastavíte <a href="https://wiki.phpbb.com/Modular_cron#Use_system_cron">systémový cron</a> a povolíte <strong>systémový cron</strong>. Více informací naleznete v Častých otázkách (FAQ) rozšíření Digests (Souhrny emailem) na fóru phpbb.com.',
 
 	'LOG_CONFIG_DIGESTS_BAD_DIGEST_TYPE'					=> '<strong>Varování: uživatel %1$s má nastaven špatný typ příspěvku "%2$s". Použije se denní.</strong>',
 	'LOG_CONFIG_DIGESTS_BAD_SEND_HOUR'						=> '<strong>Uživatel %1$s má nastavenou hodinu odeslání na %2$d. Číslo musí být >= 0 a < 24.</strong>',
