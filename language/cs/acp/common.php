@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Digests
-* @copyright (c) 2017 Mark D. Hamill (mark@phpbbservices.com)
+* @copyright (c) 2018 Mark D. Hamill (mark@phpbbservices.com)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -16,11 +16,6 @@ if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
-
-global $phpbb_container;
-
-$config = $phpbb_container->get('config');
-$helper = $phpbb_container->get('phpbbservices.digests.common');
 
 $lang = array_merge($lang, array(
 	'DIGESTS_WEEKDAY' 					=> 'Neděle,Pondělí,Úterý,Středa,Čtvrtek,Pátek,Sobota',
@@ -69,7 +64,7 @@ $lang = array_merge($lang, array(
 	'DIGESTS_EXCLUDE_FORUMS'								=> 'Vždy vynechat tato fóra',
 	'DIGESTS_EXCLUDE_FORUMS_EXPLAIN'						=> 'Vložte čísla (ID) fór, které se nikdy nemají objevit v souhrnech. Oddělte čísla čárkami. Je-li nastaveno 0, žádné fórum se nevynechá. Číslo (ID) fóra naleznete jako parametr v URL (adrese) stránky jako parameter "&ldquo;f=&rdquo;. Například: http://www.example.com/phpBB3/viewforum.php?f=1. Nepoužívejte čísla fór, která reprezentují kategorie. <i>Toto nastavení se nepoužije, pokud si uživatel objednává jen fóra v záložkách.</i>',
 	'DIGESTS_EXPAND'										=> 'Rozbalit',
-	'DIGESTS_FREQUENCY_EXPLAIN'								=> 'Týdenní souhrny jsou zasílány v ' . strtolower($weekdays[$config['phpbbservices_digests_weekly_digest_day']]) . '. Týdenní souhrny jsou zasílány prvního v každém měsíci. Pro určení dne v týdnu se používá univerzální světový čas (UTC, bez časového posunu).',
+	'DIGESTS_FREQUENCY_EXPLAIN'								=> 'Týdenní souhrny jsou zasílány v den nastavený administrátorem fóra v globálním nastavení. Týdenní souhrny jsou zasílány prvního v každém měsíci. Pro určení dne v týdnu se používá univerzální světový čas (UTC, bez časového posunu).',
 	'DIGESTS_FORMAT_FOOTER' 								=> 'Formát souhrnů',
 	'DIGESTS_FROM_EMAIL_ADDRESS'							=> 'Emailová adresa odesílatele',
 	'DIGESTS_FROM_EMAIL_ADDRESS_EXPLAIN'					=> 'Tato adresa bude použita jako odesílatel v emailu se souhrny. Pokud necháte pole prázdné, použije se email uvedený jako kontaktní adresa fóra. Buďte opatrní, pokud zvolíte email s jinou doménou, než je adresa vašeho fóra - některé emailové servery mohou souhrn vyhodnotit jako spam.',
@@ -115,7 +110,6 @@ $lang = array_merge($lang, array(
 																	2 => 'Během rozdělování zátěže byl %d odběratelům změněn čas souhrnů.',
 																	3 => 'Během rozdělování zátěže byl %d odběratelům změněn čas souhrnů.'
 															),
-	'DIGESTS_REFRESH'										=> 'Obnovit',
 	'DIGESTS_REGISTRATION_FIELD'							=> 'Povolit uživatelům objednání souhrnů při registraci',
 	'DIGESTS_REGISTRATION_FIELD_EXPLAIN'					=> 'Pokud je povoleno, dostanou noví uživatelé při registraci do fóra možnost objednat si souhrny s výchozím nastavením! Tato možnost se neobjeví, pokud je zvoleno automatické objednání souhrnů pro nové uživatele.',
 	'DIGESTS_REPLY_TO_EMAIL_ADDRESS'						=> 'Email na odpověď',
@@ -125,26 +119,26 @@ $lang = array_merge($lang, array(
 	'DIGESTS_RUN_TEST'										=> 'Spustit rozesílač emailů',
 	'DIGESTS_RUN_TEST_CLEAR_SPOOL'							=> 'Smazat vyrovnávací paměť ve složce cache/phpbbservices/digests',
 	'DIGESTS_RUN_TEST_CLEAR_SPOOL_ERROR'					=> 'Nebylo možné smazat všechny soubory ve složce cache/phpbbservices/digests. Důvodem by mohla být práva k souborům nebo byla smazána rodičovská složka. Práva by měla být umožnit zápis do složky pro kohokoliv (777 na unixových systémech).',
-	'DIGESTS_RUN_TEST_CLEAR_SPOOL_EXPLAIN'					=> 'Je-li povoleno, všechny soubory v cache/phpbbservices/digests budou smazány. To může být dobré, aby se zajistilo, že starší souhrny nebudou přístupné. To se provede před každým novým generováním nových souhrnů do této složky.',
+	'DIGESTS_RUN_TEST_CLEAR_SPOOL_EXPLAIN'					=> 'Je-li povoleno, všechny soubory v cache/phpbbservices/digests budou smazány. To může být dobré, aby se zajistilo, že starší souhrny nebudou přístupné nepovolaným. Je dobré toto udělat, jakmile máte za sebou ladění, neboť soubory v této složce jsou veřejně přístupné. Mazání se provede před každým novým generováním nových souhrnů do této složky. Provede se i tehdy, když nespustíte generování mailů (za předpokladu, že odešlete stránku pomocí "Odeslat").',
 	'DIGESTS_RUN_TEST_DAY'									=> 'Den simulace',
 	'DIGESTS_RUN_TEST_DAY_EXPLAIN'							=> 'Zadejte celé číslo od 1 do 31. Je-li rok, měsíc a den v buducnosti, nebudou samozřejmě vygenerovány žádné souhrny. Nepoužívejte den, který logicky neexistuje, jako třeba 31. února.',
 	'DIGESTS_RUN_TEST_EMAIL_ADDRESS'						=> 'Testovací emailová adresa',
 	'DIGESTS_RUN_TEST_EMAIL_ADDRESS_EXPLAIN'				=> 'Je-li v tomto poli uvedena emailová adresa, všechny souhrny pro vybranou hodinu budou zaslány na tuto emailovou adresu místo na uživatelské emailové adresy.',
 	'DIGESTS_RUN_TEST_HOUR'									=> 'Hodina simulace',
-	'DIGESTS_RUN_TEST_HOUR_EXPLAIN'							=> 'Souhrny budou poslány k dané hodině, použije se časová zóna fóra (' . $helper->make_tz_offset($config['board_timezone']) . ' UTC). Pokud je čas v budoucnosti, nevytvoří se žádné souhrny. Zadejte celé číslo od 0 do 23.',
+	'DIGESTS_RUN_TEST_HOUR_EXPLAIN'							=> 'Souhrny budou poslány k dané hodině, použije se časová zóna fóra. Pokud je čas v budoucnosti, nevytvoří se žádné souhrny. Zadejte celé číslo od 0 do 23.',
 	'DIGESTS_RUN_TEST_MONTH'								=> 'Měsíc simulace',
 	'DIGESTS_RUN_TEST_MONTH_EXPLAIN'						=> 'Zadejte celé číslo od 1 do 12. Obyčejně to bude aktuální měsíc. Bude-li rok a měsíc v budoucnosti, žádné souhrny se nevytvoří.',
 	'DIGESTS_RUN_TEST_OPTIONS'								=> 'Datum a čas simulace',
 	'DIGESTS_RUN_TEST_SEND_TO_ADMIN'						=> 'Zaslat všechny souhrny na testovací adresu',
-	'DIGESTS_RUN_TEST_SEND_TO_ADMIN_EXPLAIN'				=> 'Pokud chcete v rámci testování zaslat souhrny na určitou adresu, budou zaslány na níže uvedený email. Není-li email zadán, použije se kontaktní email fóra (' . $config['board_email']. '). <em>Pozor</em>: některé emailové servery mohou vyhodnotit velké množství emailů během krátké doby z té samé adresy jako spam (nevyžádanou poštu). Používejte opatrně. Zadáte-li "Ne", budou testovací souhrny zaslány uživatelům, což by je mohlo zmást.',
+	'DIGESTS_RUN_TEST_SEND_TO_ADMIN_EXPLAIN'				=> 'Pokud chcete v rámci testování zaslat souhrny na určitou adresu, budou zaslány na níže uvedený email. Není-li email zadán, použije se kontaktní email fóra. <em>Pozor</em>: některé emailové servery mohou vyhodnotit velké množství emailů během krátké doby z té samé adresy jako spam (nevyžádanou poštu). Používejte opatrně. Zadáte-li "Ne", budou testovací souhrny zaslány uživatelům, což by je mohlo zmást.',
 	'DIGESTS_RUN_TEST_SPOOL'								=> 'Zaslat výsledky do souborů místo odesílání emailem',
-	'DIGESTS_RUN_TEST_SPOOL_EXPLAIN'						=> 'Zabrání rozesílání souhrnů emailem. Místo toho bude každý souhrn zapsán do souboru v adresáři cache/phpbbservices/digests. Jméno souboru bude mít formát: uživatel-rok-měsíc-den-hodina.html nebo uživatel-rok-měsíc-den-hodina.txt. (Soubory s příponou .txt jsou souhrny v textovém formátu.) Dny a hodiny ve jméně souboru jsou vztaženy k UTC (Coordinated Universal Time - s nulovým časovým posunem). Pokud použijete simulaci pro jiný den a hodinu rozesílání, soubory se vytvoří s tímto datem a hodinou. Tyto souhrny se dají prohlížet přes správně složené URL.',
+	'DIGESTS_RUN_TEST_SPOOL_EXPLAIN'						=> 'Zabrání rozesílání souhrnů emailem. Místo toho bude každý souhrn zapsán do souboru v adresáři cache/phpbbservices/digests. Jméno souboru bude mít formát: uživatel-rok-měsíc-den-hodina-unikátníID.html nebo uživatel-rok-měsíc-den-hodina-unikátníID.txt. (Soubory s příponou .txt jsou souhrny v textovém formátu.) Dny a hodiny ve jméně souboru jsou vztaženy k UTC (Coordinated Universal Time - s nulovým časovým posunem). UnikátníID je systémem náhodně vygenerovaný řetězec. Pokud použijete simulaci pro jiný den a hodinu rozesílání, soubory se vytvoří s tímto datem a hodinou. Tyto souhrny se dají prohlížet přes správně složené URL.',
 	'DIGESTS_RUN_TEST_TIME_USE'								=> 'Simulovat tvorbu souhrnů k určitému měsíci a hodině nebo dni v týdnu a hodině',
 	'DIGESTS_RUN_TEST_TIME_USE_EXPLAIN'						=> 'Je-li zvoleno "Ano", nastavení níže budou použita k simulování rozesílání souhrnů jako by byl daný měsíc a hodina nebo den v týdnu a hodina. Pokud zvolíte "Ne", použije se aktuální den a hodina.',
 	'DIGESTS_RUN_TEST_YEAR'									=> 'Simulovat rok',
 	'DIGESTS_RUN_TEST_YEAR_EXPLAIN'							=> 'Jsou povoleny roky 2000 až 2030. Obvykle zřejmě použijete aktuální rok. Je-li rok v budoucnosti, žádné souhrny se pochopitelně nevytvoří.',
 	'DIGESTS_SEARCH_FOR_MEMBER'								=> 'Hledat uživatele',
-	'DIGESTS_SEARCH_FOR_MEMBER_EXPLAIN'						=> 'Vložte jméno uživatele nebo jeho začátek a stiskněte Obnovit. Ponechte prázdné pokud chcete vidět všechny uživatele. Hledání nerozlišuje malá a velká písmena.',
+	'DIGESTS_SEARCH_FOR_MEMBER_EXPLAIN'						=> 'Vložte jméno uživatele nebo jeho začátek a stiskněte "Enter". Ponechte prázdné pokud chcete vidět všechny uživatele. Hledání nerozlišuje malá a velká písmena.',
 	'DIGESTS_SELECT_FORUMS_ADMIN_EXPLAIN'					=> 'Seznam fór zahrnuje jen ta fóra, kde má uživatel práva ke čtení. Chcete-li uživateli přidělit práva na fóra, která zde nejsou zobrazena, rozšiřte jejich oprávnění nebo oprávnění jeho skupiny. Ačkoliv zde můžete detailně nastavit, která fóra se uživateli zašlou, nezašle se nic, pokud je formát souhrnů nastaven na &ldquo;Žádný&rdquo;.',
 	'DIGESTS_SHOW'											=> 'Zobrazit',
 	'DIGESTS_SHOW_EMAIL'									=> 'Zobrazit emailovou adresu v logu',

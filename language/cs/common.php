@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Digests
-* @copyright (c) 2017 Mark D. Hamill (mark@phpbbservices.com)
+* @copyright (c) 2018 Mark D. Hamill (mark@phpbbservices.com)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -16,10 +16,6 @@ if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
-
-global $phpbb_container;
-
-$config = $phpbb_container->get('config');
 
 $lang = array_merge($lang, array(
 	'PLURAL_RULE'						=> 8,
@@ -123,7 +119,7 @@ $lang = array_merge($lang, array(
 	'DIGESTS_SHOW_ATTACHMENTS_EXPLAIN'	=> 'Pokud je povoleno, obrázkové přílohy se objeví v dolní části příspěvku nebo soukromé zprávy. Jiné než obrázkové přílohy se objeví jako odkazy ke stažení (pouze HTML formát). Značka BBCode [img] tímto není dotčena.',
 	'DIGESTS_SHOW_NEW_POSTS_ONLY' 		=> 'Zobrazit jen nové zprávy',
 	'DIGESTS_SHOW_PMS' 					=> 'Zobrazit mé soukromé zprávy',
-	'DIGESTS_SIZE_ERROR'				=> sprintf("Toto políčko je povinné. Musíte zadat celé kladné číslo, menší nebo rovné maximu nastavené administrátorem fóra. Aktuální maximum je %u. Je-li nastavena 0, je délka neomezená.", $config['phpbbservices_digests_max_items']),
+	'DIGESTS_SIZE_ERROR'				=> 'Toto políčko je povinné. Musíte zadat celé kladné číslo, menší nebo rovné maximu nastavené administrátorem fóra. Je-li nastavena 0, je délka neomezená.',
 	'DIGESTS_SIZE_ERROR_MIN'			=> 'Musíte zadat číslo větší než nula nebo políčko ponechat prázdné. Je-li hodnota nula, neplatí žádný limit.',
 	'DIGESTS_SKIP'						=> 'Přeskočit k obsahu',
 	'DIGESTS_SORT_BY'					=> 'Setřídění příspěvků',
