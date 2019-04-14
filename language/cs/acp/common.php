@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Digests
-* @copyright (c) 2018 Mark D. Hamill (mark@phpbbservices.com)
+* @copyright (c) 2019 Mark D. Hamill (mark@phpbbservices.com)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -48,10 +48,11 @@ $lang = array_merge($lang, array(
 	'DIGESTS_BASED_ON'										=> '(Vztaženo k UTC%+d)',
 	'DIGESTS_CURRENT_VERSION_INFO'							=> 'Vaše verze je <strong>%s</strong>.',
 	'DIGESTS_CUSTOM_STYLESHEET_PATH'						=> 'Cesta k vlastnímu CSS stylu',
-	'DIGESTS_CUSTOM_STYLESHEET_PATH_EXPLAIN'				=> 'Toto nastavení je použito jen pokud je nastavena volba "Povolit vlastní CSS styl". Pokud je nastavena, styl bude použit pro všechny souhrny ve Stylovaném formátu. Cesta by měla být relativní k adresáři stylů a zpravidla by se měla nacházet ve složce s tématy. Upozornění: tento styl musíte vytvořit a umístit na server. Příklad: prosilver/theme/digest_stylesheet.css. Více informací o vytváření CSS stylů např. na <a href="http://www.w3schools.com/css/">W3 Schools</a>.',
+	'DIGESTS_CUSTOM_STYLESHEET_PATH_EXPLAIN'				=> 'Toto nastavení je použito jen pokud je nastavena volba "Povolit vlastní CSS styl". Pokud je nastavena, styl bude použit pro všechny souhrny ve Stylovaném formátu. Cesta by měla být relativní k složce stylů a zpravidla by se měla nacházet ve složce s tématy. Upozornění: tento styl musíte vytvořit a umístit na server. Příklad: prosilver/theme/digest_stylesheet.css. Více informací o vytváření CSS stylů např. na <a href="http://www.w3schools.com/css/">W3 Schools</a>.',
 	'DIGESTS_COLLAPSE'										=> 'Sbalit',
 	'DIGESTS_COMMA'											=> ', ',		// Used  in salutations and to separate items in lists
-	'DIGESTS_DEFAULT'										=> 'Objednat pomocí výchozích nastavení',
+    'DIGESTS_CREATE_DIRECTORY_ERROR'						=> 'Nepodařilo se vytvořit adresář %s. Důvodem mohou být nedostatečná práva. Práva na adresář by měla obsahovat právo zápisu (např. 777 na linuxových systémech).',
+    'DIGESTS_DEFAULT'										=> 'Objednat pomocí výchozích nastavení',
 	'DIGESTS_DAILY_ONLY'									=> 'Jen denní souhrny',
 	'DIGESTS_ENABLE_AUTO_SUBSCRIPTIONS'						=> 'Automaticky zapnout souhrny novým uživatelům',
 	'DIGESTS_ENABLE_AUTO_SUBSCRIPTIONS_EXPLAIN'				=> 'Pokud chcete, aby noví uživatelé automaticky dostávali souhrny, zvolte "Ano". Jako výchozí nastavení se použijí výchozí nastavení (to se nastavuje v sekci "Výchozí nastavení uživatelů" níže). Tímto se ale nenastaví zasílání souhrnů stávajícím uživatelům.',
@@ -89,16 +90,18 @@ $lang = array_merge($lang, array(
 	'DIGESTS_MAILER_NOT_RUN'								=> 'Rozeslání mailem neproběhlo, protože nebyl povolen.',
 	'DIGESTS_MAILER_RAN_SUCCESSFULLY'						=> 'Rozesílání emailů proběhlo úspěšně.',
 	'DIGESTS_MAILER_RAN_WITH_ERROR'							=> 'Během rozesílání emailů došlo k chybě. Jeden nebo více souhrnů bylo úspěšně vytvořeno. Administrační log nebo log chyb phpBB by měl obsahovat více informací.',
-	'DIGESTS_MAILER_SPOOLED'								=> 'Všechny souhrny vytvořené pro tento den a hodinu byly uloženy do adresáře store/phpbbservices/digests.',
-    'DIGESTS_MARK_UNMARK_ROW'								=> 'Označit nebo odznačit řádku',
-    'DIGESTS_MARK_ALL'										=> 'Označit nebo odznačit všechny řádky',
-    'DIGESTS_MAX_CRON_HOURS'								=> 'Maximum hodin, které budou zpracovány rozesílačem',
-  	'DIGESTS_MAX_CRON_HOURS_EXPLAIN'						=> 'Nastavte na 0 (nulu), aby se zpracovaly všechny zprávy pro všeechny hodiny ve frontě. Ovšem pokud máte <strong>sdílený hosting</strong>, běh rozesílače může překročit systémový limit zdrojů a vyvolat chybu. To se může stát, pokud máte hodně adresátů a malý provoz na fóru. Nastavení <a href="https://wiki.phpbb.com/PhpBB3.1/RFC/Modular_cron#Use_system_cron">systemového cronu</a> je nejjednodušší způsob jak tento problém minimalizovat a taky zajistí, že budou souhrny chodit včas.',
+	'DIGESTS_MAILER_SPOOLED'								=> 'Všechny souhrny vytvořené pro tento den a hodinu byly uloženy do složky store/phpbbservices/digests.',
+	'DIGESTS_MARK_UNMARK_ROW'								=> 'Označit nebo odznačit řádku',
+	'DIGESTS_MARK_ALL'										=> 'Označit nebo odznačit všechny řádky',
+	'DIGESTS_MAX_CRON_HOURS'								=> 'Maximum hodin, které budou zpracovány rozesílačem',
+	'DIGESTS_MAX_CRON_HOURS_EXPLAIN'						=> 'Nastavte na 0 (nulu), aby se zpracovaly všechny zprávy pro všeechny hodiny ve frontě. Ovšem pokud máte <strong>sdílený hosting</strong>, běh rozesílače může překročit systémový limit zdrojů a vyvolat chybu. To se může stát, pokud máte hodně adresátů a malý provoz na fóru. Nastavení <a href="https://wiki.phpbb.com/PhpBB3.1/RFC/Modular_cron#Use_system_cron">systemového cronu</a> je nejjednodušší způsob jak tento problém minimalizovat a taky zajistí, že budou souhrny chodit včas.',
 	'DIGESTS_MAX_ITEMS'										=> 'Maximální počet příspěvků v jakémkoliv souhrnu',
 	'DIGESTS_MAX_ITEMS_EXPLAIN'								=> 'Z důvodu zatížení serveru můžete chtít nastavit maximální počet příspěvků pro jakýkoliv souhrn. Nastavíte-li 0 (nulu), nebude se počet nijak omezovat. Můžete použít jakékoliv celé číslo. Příspěvky jsou dále omezeny frekvencí souhrnu (denně, týdně nebo měsíčně) a dalšími kritérii, která si uživatel nastaví.',
 	'DIGESTS_MAIL_FREQUENCY' 								=> 'Frekvence zasílání',
 	'DIGESTS_MIGRATE_UNSUPPORTED_VERSION'					=> 'Aktualizace souhrnů na novou verzi (pro phpBB 3.0) je podporováno pro verzi 2.2.6 a novější. Máte verzi %s. Rozšížení nemůže být aktualizováno ani instalováno. Pomoc naleznete na fóru podpory phpbb.com.',
-	'DIGESTS_MONTHLY_ONLY'									=> 'Jen měsíční souhrn',
+    'DIGESTS_MIN_POPULARITY_SIZE'							=> 'Minimální oblíbenost tématu',
+    'DIGESTS_MIN_POPULARITY_SIZE_EXPLAIN'					=> 'Toto nastavuje minimální počet příspěvků denně potřebných proto, aby se téma považovalo za oblíbené. Uživatelé si nemohou nastavit hodnotu nižší než je zde uvedená hodnota. Hodnota je aplikována pouze pro odběratele s frekvencí den, týden nebo měsíc, aby odrážela oblíbenost v posledním období.',
+    'DIGESTS_MONTHLY_ONLY'									=> 'Jen měsíční souhrn',
 	'DIGESTS_NEVER_VISITED'									=> 'Zatím nenavštíven',
 	'DIGESTS_NO_DIGESTS_SENT'								=> 'Souhrn nezaslán',
 	'DIGESTS_NO_MASS_ACTION'								=> 'Žádná akce se neprovedla, protože hromadná funkce není povolena',
@@ -134,7 +137,7 @@ $lang = array_merge($lang, array(
 	'DIGESTS_RUN_TEST_SEND_TO_ADMIN'						=> 'Zaslat všechny souhrny na testovací adresu',
 	'DIGESTS_RUN_TEST_SEND_TO_ADMIN_EXPLAIN'				=> 'Pokud chcete v rámci testování zaslat souhrny na určitou adresu, budou zaslány na níže uvedený email. <em>Poznámka</em>: pokud vytváříte souhrny do souborů, toto nastavení se nepoužije. Není-li email zadán, použije se kontaktní email fóra. <em>Pozor</em>: některé emailové servery mohou vyhodnotit velké množství emailů během krátké doby z té samé adresy jako spam (nevyžádanou poštu). Používejte opatrně. Zadáte-li "Ne", budou testovací souhrny zaslány uživatelům, což by je mohlo zmást.',
 	'DIGESTS_RUN_TEST_SPOOL'								=> 'Zaslat výsledky do souborů místo odesílání emailem',
-	'DIGESTS_RUN_TEST_SPOOL_EXPLAIN'						=> 'Zabrání rozesílání souhrnů emailem. Místo toho bude každý souhrn zapsán do souboru ve složce store/phpbbservices/digests. Jméno souboru bude mít formát: uživatel-rok-měsíc-den-hodina.html nebo uživatel-rok-měsíc-den-hodina.txt. (Soubory s příponou .txt jsou souhrny v textovém formátu.) Dny a hodiny ve jméně souboru jsou vztaženy k UTC (Coordinated Universal Time - s nulovým časovým posunem). Pokud použijete simulaci pro jiný den a hodinu rozesílání, soubory se vytvoří s tímto datem a hodinou. Tyto souhrny je možné stáhnout pomocí FTP a prohlížet na počítači. Souhrny ve formátu HTML otevřete v prohlížeči.',
+	'DIGESTS_RUN_TEST_SPOOL_EXPLAIN'						=> 'Zabrání rozesílání souhrnů emailem. Místo toho bude každý souhrn zapsán do souboru ve složce store/phpbbservices/digests. Jméno souboru bude mít formát: uživatel-rok-měsíc-den-hodina.html nebo uživatel-rok-měsíc-den-hodina.txt. (Soubory s příponou .txt jsou souhrny v textovém formátu.) Dny a hodiny ve jméně souboru jsou vztaženy k UTC (Coordinated Universal Time - s nulovým časovým posunem). Pokud použijete simulaci pro jiný den a hodinu rozesílání, soubory se vytvoří s tímto datem a hodinou. Tyto souhrny je možné stáhnout pomocí FTP a prohlížet na lokálním počítači. Souhrny ve formátu HTML otevřete v prohlížeči.',
 	'DIGESTS_RUN_TEST_TIME_USE'								=> 'Simulovat tvorbu souhrnů k určitému měsíci a hodině nebo dni v týdnu a hodině',
 	'DIGESTS_RUN_TEST_TIME_USE_EXPLAIN'						=> 'Je-li zvoleno "Ano", nastavení níže budou použita k simulování rozesílání souhrnů jako by byl daný měsíc a hodina nebo den v týdnu a hodina (vztaženo k časové zóně serveru). Vaši čsovou zónu nastavenou na serveru můžete vidět v Administraci phpBB, záložka "Systém", menu "Informace o PHP" a hledejte "Default timezone". Pokud zvolíte "Ne", použije se aktuální den a hodina.',
 	'DIGESTS_RUN_TEST_YEAR'									=> 'Simulovat rok',

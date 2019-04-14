@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Digests
-* @copyright (c) 2018 Mark D. Hamill (mark@phpbbservices.com)
+* @copyright (c) 2019 Mark D. Hamill (mark@phpbbservices.com)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -62,16 +62,18 @@ $lang = array_merge($lang, array(
 	'DIGESTS_JUMP_TO_MSG'				=> 'Id zprávy',
 	'DIGESTS_JUMP_TO_POST'				=> 'Id příspěvku',
 	'DIGESTS_LASTVISIT_RESET'			=> 'Označit čas zaslání souhrnu jako datum mé poslední návštěvy na fóru',
-	'DIGESTS_LASTVISIT_RESET_EXPLAIN'	=> 'Pokud je povoleno, označí se všechny příspěvky, které jsou právě zasílány emailem, jako přečtená na fóru. Touto volbou vlastně řeknete, že zaslání souhrnů je ekvivalentní jejich přečtení na fóru..',
+	'DIGESTS_LASTVISIT_RESET_EXPLAIN'	=> 'Pokud je povoleno, použije se datum a čas vytvoření souhrnu emailem jako čas poslední návštěvy fóra. Témata a oznámení před tímto časem budou také označená za přečtená.',
 	'DIGESTS_LINK'						=> 'Odkaz',
 	'DIGESTS_MARK_READ'					=> 'Označit zprávy jako přečtené, pokud jsou mi zaslány v souhrnu',
 	'DIGESTS_MAX_DISPLAY_WORDS'			=> 'Maximální počet slov z příspěvku',
-	'DIGESTS_MAX_DISPLAY_WORDS_EXPLAIN'	=> 'Upozornění: Aby nedošlo k chybě formátování, tak se v případě krácení HTML formátování z příspěvku odstraní. Chcete-li zobrazit příspěvek celý, nechte políčko prázdné. Políčko ignorováno, pokud je nastavena volba &ldquo;Vůbec nezobrazovat text příspěvků&rdquo;.',
+	'DIGESTS_MAX_DISPLAY_WORDS_EXPLAIN'	=> 'Upozornění: Aby nedošlo k chybě formátování, tak se v případě krácení HTML formátování z příspěvku odstraní. Chcete-li zobrazit příspěvek celý, nechte políčko prázdné nebo uveďte 0. Políčko ignorováno, pokud je nastavena volba &ldquo;Vůbec nezobrazovat text příspěvků&rdquo;.',
 	'DIGESTS_MAX_SIZE'					=> 'Maximální počet slov z příspěvku',
 	'DIGESTS_MAX_WORDS_NOTIFIER'		=> '... ',
 	'DIGESTS_MIN_SIZE'					=> 'Minimální počet slov, aby se příspěvek zobrazil v souhrnu',
-	'DIGESTS_MIN_SIZE_EXPLAIN'			=> 'Necháte-li pole volné, zahrnou se všechny příspěvky bez ohledu na délku',
-	'DIGESTS_MONTHLY'					=> 'Měsíčně',
+	'DIGESTS_MIN_SIZE_EXPLAIN'			=> 'Necháte-li pole volné nebo 0, zahrnou se všechny příspěvky bez ohledu na délku',
+    'DIGESTS_MIN_POPULARITY_VALUE'		=> 'Minimální hodnota oblíbenosti',
+    'DIGESTS_MIN_POPULARITY_VALUE_EXPLAIN'		=> 'Téma musí mít v průměru alespoň tolik příspěvků denně během periody zasílání souhrnů (den, týden nebo měsíc), aby byl zahrnut do souhrnu. Nemůžete nastavit hodnotu nižší než nastavil administrátor fóra.',
+    'DIGESTS_MONTHLY'					=> 'Měsíčně',
 	'DIGESTS_NEW'						=> 'Nové',
 	'DIGESTS_NEW_POSTS_ONLY'			=> 'Zobrazit jen nové příspěvky',
 	'DIGESTS_NEW_POSTS_ONLY_EXPLAIN'	=> 'Toto odfiltruje všechny příspěvky, které byly zaslány před časem vaší poslední návštěvy fóra. Pokud navštěvujete fórum často a čtete většinu příspěvků, zamezíte zahrnutí vámi již přečtených příspěvků. Můžete tím ale také vynechat příspěvky, které jste ještě nečetl.',
@@ -106,7 +108,8 @@ $lang = array_merge($lang, array(
 	'DIGESTS_REPLY'						=> 'Odpovědět',
 	'DIGESTS_ROBOT'						=> 'Robot',
 	'DIGESTS_SALUTATION' 				=> 'Milá/Milý',
-	'DIGESTS_SELECT_FORUMS'				=> 'Zahrnout příspěvky z těchto fór',
+    'DIGESTS_SEE_POPULAR_TOPICS_ONLY'	=> 'Zahrnout pouze oblíbená témata',
+    'DIGESTS_SELECT_FORUMS'				=> 'Zahrnout příspěvky z těchto fór',
 	'DIGESTS_SELECT_FORUMS_EXPLAIN'		=> 'Zde jsou zobrazena jen ta fóra, ke kterým máte oprávnění číst. Výběr fór není dostupný, pokud jste zvolili odběr pouze témat v záložkách. Pokud není zvoleno ani "Vše" ani žádné záložky, musíte vybrat alespoň jedno fórum, jinak není možné nastavení uložit.<br><br>Fóra, jejichž jména jsou uvedena tučně, jsou administrátorem nastavená jako povinná (s výjimkou souhrnů pouze se záložkami). Tato fóra nemůžete odebrat. Fóra, jejichž jména jsou přeškrtnuta, jsou administrátorem ze souhrnů vyloučena (s výjimkou souhrnů pouze ze záložek) a není možné je označit.',
 	'DIGESTS_SEND_HOUR' 				=> 'Hodina posílání',
 	'DIGESTS_SEND_HOUR_EXPLAIN'			=> 'Čas odesílání příspěvků je přizpůsoben vaší časové zóně a letnímu či zimnímu času podle vašeho nastavení ve fóru.',
