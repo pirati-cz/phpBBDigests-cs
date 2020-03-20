@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Digests
-* @copyright (c) 2018 Mark D. Hamill (mark@phpbbservices.com)
+* @copyright (c) 2019 Mark D. Hamill (mark@phpbbservices.com)
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -36,20 +36,21 @@ $lang = array_merge($lang, array(
 	'ACP_DIGESTS_RESET_CRON_RUN_TIME'						=> 'Anulovat čas rozesílače',
 	'ACP_DIGESTS_RESET_CRON_RUN_TIME_EXPLAIN'				=> '',
 	'ACP_DIGESTS_TEST'										=> 'Spustit rozeslání ručně',
-	'ACP_DIGESTS_TEST_EXPLAIN'								=> 'Tato funkce vám umožní pustit generování souhrnů ručně pro úvodní nastavení či řešení problémů. Můžete ji taky použít na opětovné vytvoření souhrnů pro určitý den a hodinu. Pro určení času se použije časová zóna fóra. Upozornění: čas, kdy budou souhrny skutečně vygenerovány, může záviset na provozu na vašem fóru a souhrny pak mohou být doručeny později. Tomu můžete předejít, pokud nastavíte <a href="https://wiki.phpbb.com/Modular_cron#Use_system_cron">systémový cron</a> a povolíte <strong>systémový cron</strong>. Více informací naleznete v Častých otázkách (FAQ) rozšíření Digests (Souhrny emailem) na fóru phpbb.com.',
+	'ACP_DIGESTS_TEST_EXPLAIN'								=> 'Tato funkce vám umožní pustit generování souhrnů ručně pro úvodní nastavení či řešení problémů. Můžete ji taky použít na opětovné vytvoření souhrnů pro určitý den a hodinu. Spustí se jen pro jednu hodinu. Během tohoto spuštění nejsou měněna žádná uživatelská data.',
 
 	'LOG_CONFIG_DIGESTS_BAD_DIGEST_TYPE'					=> '<strong>Varování: uživatel %1$s má nastaven špatný typ příspěvku "%2$s". Použije se denní.</strong>',
 	'LOG_CONFIG_DIGESTS_BAD_SEND_HOUR'						=> '<strong>Uživatel %1$s má nastavenou hodinu odeslání na %2$d. Číslo musí být >= 0 a < 24.</strong>',
 	'LOG_CONFIG_DIGESTS_BALANCE_LOAD'						=> '<strong>Rozdělení zátěže souhrnů emailem proběhlo úspěšně.</strong>',
 	'LOG_CONFIG_DIGESTS_BOARD_DISABLED'						=> '<strong>Rozesílání souhrnů bylo spuštěno, ale ukončeno, protože fórum je nepřístupné.</strong>',
-	'LOG_CONFIG_DIGESTS_CACHE_CLEARED'						=> '<strong>Obsah adresáře cache/phpbbservices/digests directory byl smazán',
-	'LOG_CONFIG_DIGESTS_CLEAR_SPOOL_ERROR'					=> '<strong>Nebylo možné vymazat soubory z adresáře cache/phpbbservices/digests. To může být  způsobeno nedostatečnými právy k souborům a nebo je tato cesta neplatná. Soubory by měly být veřejně zapisovatelné (777 na unixových systémech).</strong>',
-	'LOG_CONFIG_DIGESTS_DIRECTORY_CREATE_ERROR'				=> '<strong>Nebylo možné vytvořit adresář cache/phpbbservices/digests. Může to být způsobeno nedostatečnými právy k adresáři s phpBB na serveru.</strong>',
+	'LOG_CONFIG_DIGESTS_CACHE_CLEARED'						=> '<strong>Obsah složky store/phpbbservices/digests directory byl smazán',
+	'LOG_CONFIG_DIGESTS_CLEAR_SPOOL_ERROR'					=> '<strong>Nebylo možné vymazat soubory ze složky store/phpbbservices/digests. To může být  způsobeno nedostatečnými právy k souborům a nebo je tato cesta neplatná. Soubory by měly být veřejně zapisovatelné (777 na unixových systémech).</strong>',
+	'LOG_CONFIG_DIGESTS_DIRECTORY_CREATE_ERROR'				=> '<strong>Nebylo možné vytvořit složku store/phpbbservices/digests. Může to být způsobeno nedostatečnými právy k adresáři s phpBB na serveru.</strong>',
 	'LOG_CONFIG_DIGESTS_DUPLICATE_PREVENTED'				=> '<strong>Souhrn NEBYL poslán %1$s (%2$s) pro datum %3$s a hodinu %4$02d UTC, protože mu byl pro tuto hodinu poslán již dříve.</strong>',
 	'LOG_CONFIG_DIGESTS_EDIT_SUBSCRIBERS'					=> '<strong>Upraveny objednávky souhrnů</strong>',
 	'LOG_CONFIG_DIGESTS_FILE_CLOSE_ERROR'					=> '<strong>Nepodařilo se zavřít soubor "%s"</strong>',
-	'LOG_CONFIG_DIGESTS_FILE_OPEN_ERROR'					=> '<strong>Nepodařilo se otevřít adresář "%s". Může to být způsobeno nedostatečnými právy k němu. Práva k souboru by měla umožnit zapisování (777 na unixových systémech).</strong>',
-	'LOG_CONFIG_DIGESTS_FILE_WRITE_ERROR'					=> '<strong>Nemohu psát do souboru "%s". Může to být způsobeno nedostatečnými právy k souboru nebo adresáři. Práva musí umožnit zapisování (777 na unixových systémech).</strong>',
+	'LOG_CONFIG_DIGESTS_CREATE_DIRECTORY_ERROR'				=> '<strong>Nepodařilo se vytvořit složku "%s". Může to být způsobeno nedostatečnými právy. Práva nadřazené složky by měla umožnit zapisování (777 na unixových systémech).</strong>',
+	'LOG_CONFIG_DIGESTS_FILE_OPEN_ERROR'					=> '<strong>Nepodařilo se otevřít složku "%s". Může to být způsobeno nedostatečnými právy k ní. Práva k souboru by měla umožnit zapisování (777 na unixových systémech).</strong>',
+	'LOG_CONFIG_DIGESTS_FILE_WRITE_ERROR'					=> '<strong>Nemohu psát do souboru "%s". Může to být způsobeno nedostatečnými právy k souboru nebo složce. Práva musí umožnit zapisování (777 na unixových systémech).</strong>',
 	'LOG_CONFIG_DIGESTS_FILTER_ERROR'						=> '<strong>Rozesílání souhrnů bylo zavoláno s nesprávným typem filtru = "%1$s" pro "%2$s"</strong>',
 	'LOG_CONFIG_DIGESTS_FORMAT_ERROR'						=> '<strong>Rozesílání souhrnů bylo zavoláno s nesprávnou frekvencí posílání "%1$s" pro "%2$s"</strong>',
 	'LOG_CONFIG_DIGESTS_GENERAL'							=> '<strong>Obecné nastavení souhrnů bylo změněno</strong>',
@@ -62,7 +63,7 @@ $lang = array_merge($lang, array(
 																2 => '<strong>Souhrn byl %1$s pro %2$s (%3$s) pro den %4$s a hodinu %5$02d UTC. Obsahuje %6$d příspěvků a %7$d soukromých zpráv.</strong>',
 																3 => '<strong>Souhrn byl %1$s pro %2$s (%3$s) pro den %4$s a hodinu %5$02d UTC. Obsahuje %6$d příspěvků a %7$d soukromých zpráv.</strong>'
 															),
-	'LOG_CONFIG_DIGESTS_LOG_ENTRY_GOOD_DISK'				=> '<strong>Souhrn příspěvků byl uložen do cache/phpbbservices/digests/%s. Souhnr NEBYL odeslán emailem, ale uložen zde k prozkoumání.</strong>',
+	'LOG_CONFIG_DIGESTS_LOG_ENTRY_GOOD_DISK'				=> '<strong>Souhrn příspěvků byl uložen do store/phpbbservices/digests/%s. Souhnr NEBYL odeslán emailem, ale uložen zde k prozkoumání.</strong>',
 	'LOG_CONFIG_DIGESTS_LOG_ENTRY_GOOD_NO_EMAIL'			=> array(
 																1 => '<strong>Souhrn byl %1$s pro %2$s pro den %3$s a hodinu %4$02d UTC. Obsahuje %5$d příspěvků a %6$d soukromých zpráv.</strong>',
 																2 => '<strong>Souhrn byl %1$s pro %2$s pro den %3$s a hodinu %4$02d UTC. Obsahuje %5$d příspěvků a %6$d soukromých zpráv.</strong>',
